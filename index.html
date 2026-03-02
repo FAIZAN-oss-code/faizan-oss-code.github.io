@@ -1,60 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fahad Level 17</title>
+<title>Level 17</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
 body{
+  margin:0;
   height:100vh;
-  overflow:hidden;
   display:flex;
   justify-content:center;
   align-items:center;
   flex-direction:column;
-  background: linear-gradient(-45deg,#1e1e3f,#2b1055,#3a1c71,#000428);
-  background-size:400% 400%;
-  animation: gradientMove 12s ease infinite;
+  background: radial-gradient(circle at center,#2b1055,#000000);
   color:white;
+  font-family:sans-serif;
   text-align:center;
+  overflow:hidden;
 }
 
-@keyframes gradientMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* Aura Glow */
 .aura{
   position:absolute;
-  width:300px;
-  height:300px;
-  background:radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 70%);
+  width:350px;
+  height:350px;
+  background: radial-gradient(circle,
+    rgba(255,215,0,0.8) 0%,
+    rgba(255,0,255,0.4) 40%,
+    transparent 70%);
   border-radius:50%;
-  filter:blur(40px);
+  filter:blur(50px);
   animation:pulse 3s infinite;
 }
 
 @keyframes pulse{
   0%{transform:scale(1)}
-  50%{transform:scale(1.2)}
+  50%{transform:scale(1.3)}
   100%{transform:scale(1)}
 }
 
-/* Cake */
 .cake{
-  font-size:80px;
-  cursor:pointer;
+  font-size:90px;
   z-index:2;
+  cursor:pointer;
   transition:0.3s;
 }
 
@@ -62,70 +49,32 @@ body{
   transform:scale(1.1);
 }
 
-/* Text */
 h1{
   margin-top:20px;
-  font-size:28px;
-  text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff;
-}
-
-p{
-  margin-top:10px;
-  font-size:16px;
-  opacity:0.8;
+  font-size:30px;
+  text-shadow:0 0 20px gold;
 }
 
 #countdown{
   margin-top:15px;
   font-size:18px;
   color:gold;
-  text-shadow:0 0 10px gold;
-}
-
-/* Floating particles */
-.particle{
-  position:absolute;
-  width:6px;
-  height:6px;
-  background:gold;
-  border-radius:50%;
-  box-shadow:0 0 10px gold;
-  animation:floatUp linear forwards;
-}
-
-@keyframes floatUp{
-  to{
-    transform:translateY(-100vh);
-    opacity:0;
-  }
-}
-
-/* Power Mode */
-.power{
-  animation:flash 0.3s 3;
-}
-
-@keyframes flash{
-  0%{background:white}
-  100%{background:black}
 }
 
 </style>
 </head>
+
 <body>
 
 <div class="aura"></div>
 
-<div class="cake" onclick="powerMode()">🎂</div>
+<div class="cake" onclick="unlock()">🎂</div>
 
-<h1 id="title">Happy 17th Birthday Fahad 🎉</h1>
-<p>Level 17 Loading...</p>
+<h1 id="title">Happy 17th Birthday Fahad 👑</h1>
 
 <div id="countdown"></div>
 
 <script>
-
-/* Countdown to 6 March */
 const birthday = new Date("March 6, 2026 00:00:00").getTime();
 
 setInterval(()=>{
@@ -133,40 +82,15 @@ setInterval(()=>{
   const distance = birthday - now;
 
   const days = Math.floor(distance/(1000*60*60*24));
-  const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
   document.getElementById("countdown").innerHTML =
-  days + " Days " + hours + " Hours to Level 17 🚀";
+  days + " Days to Level 17 🔓";
 },1000);
 
-
-/* Floating Aura Particles */
-function createParticle(){
-  const particle = document.createElement("div");
-  particle.classList.add("particle");
-  particle.style.left = Math.random()*100 + "vw";
-  particle.style.bottom = "0px";
-  particle.style.animationDuration = (2+Math.random()*3)+"s";
-  document.body.appendChild(particle);
-
-  setTimeout(()=>particle.remove(),5000);
-}
-
-setInterval(createParticle,200);
-
-
-/* Cake Click Power Mode */
-function powerMode(){
-  document.body.classList.add("power");
-
+function unlock(){
   document.getElementById("title").innerHTML =
-  "LEVEL 17 UNLOCKED 🔓🔥";
-
-  setTimeout(()=>{
-    document.body.classList.remove("power");
-  },900);
+  "LEVEL 17 UNLOCKED 🔥";
 }
-
 </script>
 
 </body>
