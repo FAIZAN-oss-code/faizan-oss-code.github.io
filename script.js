@@ -35,3 +35,24 @@ function update() {
 }
 
 update();
+function createSpark() {
+  const spark = document.createElement("div");
+  spark.classList.add("spark");
+  spark.style.left = Math.random() * 100 + "vw";
+  spark.style.animationDuration = 2 + Math.random() * 3 + "s";
+  document.body.appendChild(spark);
+
+  setTimeout(() => spark.remove(), 5000);
+}
+
+setInterval(createSpark, 200);
+const birthday = new Date("March 6, 2026 00:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = birthday - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  document.getElementById("countdown").innerText =
+    days + " Days to Level 17 🚀";
+}, 1000);
