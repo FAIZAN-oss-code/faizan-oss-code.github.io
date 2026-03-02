@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8b8c6, #ffd1dc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-size: 3em;
+    color: #c2185b;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(255,255,255,0.8);
+    animation: fadeIn 2s ease;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    color: #880e4f;
+    margin-top: 10px;
+    animation: fadeIn 3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cake */
+.cake {
+    width: 160px;
+    height: 90px;
+    background: #8d6e63;
+    border-radius: 12px;
+    position: relative;
+    margin: 0 auto 30px;
+}
+
+.cake::before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 160px;
+    height: 45px;
+    background: white;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Candle */
+.candle {
+    width: 18px;
+    height: 55px;
+    background: white;
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+.flame {
+    width: 18px;
+    height: 22px;
+    background: gold;
+    border-radius: 50%;
+    position: absolute;
+    top: -22px;
+    animation: flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.2); opacity: 1; }
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
